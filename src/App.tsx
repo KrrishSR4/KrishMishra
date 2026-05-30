@@ -20,21 +20,23 @@ const queryClient = new QueryClient();
 
 function Portfolio() {
   return (
-    <main className="relative">
+    <>
       <SmoothScroll />
       <Navbar />
-      <Hero />
-      <MarqueeBand />
-      <About />
-      <Skills />
-      <Services />
-      <Process />
-      <Projects />
-      <Testimonials />
-      <FAQ />
-      <Contact />
+      <main className="relative">
+        <Hero />
+        <MarqueeBand />
+        <About />
+        <Skills />
+        <Services />
+        <Process />
+        <Projects />
+        <Testimonials />
+        <FAQ />
+        <Contact />
+      </main>
       <ScrollToTop />
-    </main>
+    </>
   );
 }
 

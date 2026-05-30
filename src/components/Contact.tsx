@@ -230,7 +230,7 @@ export function Contact() {
               { Icon: Github, href: "#", label: "GitHub" },
               { Icon: Linkedin, href: "#", label: "LinkedIn" },
               { Icon: Twitter, href: "#", label: "Twitter" },
-              { Icon: Mail, href: "mailto:hello@krishmishra.dev", label: "Email" },
+              { Icon: Mail, href: "mailto:krishmishra4444@gmail.com", label: "Email" },
             ].map(({ Icon, href, label }, i) => (
               <motion.a
                 key={i}
