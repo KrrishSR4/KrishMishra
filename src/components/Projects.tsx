@@ -197,23 +197,13 @@ export function Projects() {
             >
               — Selected Work
             </p>
-            <h2
-              className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-2xl font-display"
-              style={{ color: INK }}
-            >
-              Crafted for clients who{" "}
-              <span
-                className="italic font-light relative inline-block"
-                style={{
-                  backgroundColor: GOLD,
-                  padding: "0 0.15em",
-                  color: INK,
-                }}
-              >
-                care
-              </span>
-              .
-            </h2>
+<h2
+               className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-2xl font-display"
+               style={{ color: INK }}
+             >
+               <span className="block">Full Stack Developer Portfolio</span>
+               <span className="block text-3xl sm:text-4xl md:text-5xl font-medium">Selected Work & Projects</span>
+             </h2>
           </div>
           <div className="relative mt-5 w-fit -rotate-1">
             <BrushStroke

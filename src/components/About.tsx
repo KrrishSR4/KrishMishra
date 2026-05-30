@@ -20,9 +20,10 @@ export function About() {
           className="lg:sticky lg:top-32"
         >
           <p className="text-xs sm:text-sm font-semibold text-emerald mb-3 tracking-[0.2em] uppercase">— About Krish</p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
-            Six years turning <span className="text-emerald italic font-light">ideas</span> into shipped products.
-          </h2>
+<h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
+              Freelance Full Stack Developer Portfolio<br/>
+              <span className="text-emerald italic font-light">Six years turning ideas</span> into shipped products.
+            </h2>
           <div className="relative mt-7 w-fit -rotate-1">
             <BrushStroke
               color="#0F172A"
