@@ -51,7 +51,6 @@ export function Services() {
               transition={{ duration: 0.55, delay: (i % 3) * 0.08 }}
               className="group relative brut-card p-6 sm:p-7 overflow-hidden"
             >
-              <div className="absolute -top-10 -right-10 w-32 h-32 bg-orange opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative">
                 <div className="flex items-center justify-between">
                   <div className="w-12 h-12 bg-ink text-primary-foreground flex items-center justify-center group-hover:rotate-6 transition-transform" style={{ borderRadius: 6 }}>

@@ -28,18 +28,6 @@ export function FAQ() {
       className="relative py-24 sm:py-32 overflow-hidden bg-grid-ink"
       style={{ backgroundColor: BG, color: INK }}
     >
-      {/* geometric accents */}
-      <div
-        aria-hidden
-        className="absolute top-14 left-10 w-12 h-12 rotate-12 hidden md:block"
-        style={{ backgroundColor: ORANGE, opacity: 0.1 }}
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-20 right-8 w-8 h-8 hidden md:block"
-        style={{ backgroundColor: GOLD, opacity: 0.15 }}
-      />
-
       <div className="max-w-5xl mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-10 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -81,21 +69,7 @@ export function FAQ() {
           </div>
           <a
             href="#contact"
-            className="mt-7 inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold transition-all duration-200"
-            style={{
-              backgroundColor: INK,
-              color: BG,
-              borderRadius: 4,
-              boxShadow: `4px 4px 0 0 ${ORANGE}`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translate(-2px, -2px)";
-              e.currentTarget.style.boxShadow = `7px 7px 0 0 ${ORANGE}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translate(0, 0)";
-              e.currentTarget.style.boxShadow = `4px 4px 0 0 ${ORANGE}`;
-            }}
+            className="brut-cta mt-7 inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold"
           >
             Ask anything →
           </a>

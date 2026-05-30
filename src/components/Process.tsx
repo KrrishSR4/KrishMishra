@@ -27,18 +27,6 @@ export function Process() {
       className="relative py-24 sm:py-32 overflow-hidden bg-grid-ink"
       style={{ backgroundColor: BG, color: INK }}
     >
-      {/* geometric accent blocks */}
-      <div
-        aria-hidden
-        className="absolute top-16 left-8 w-14 h-14 rotate-12 hidden md:block"
-        style={{ backgroundColor: ORANGE, opacity: 0.12 }}
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-20 right-12 w-8 h-8 hidden md:block"
-        style={{ backgroundColor: GOLD, opacity: 0.18 }}
-      />
-
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

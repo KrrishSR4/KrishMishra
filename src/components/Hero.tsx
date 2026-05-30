@@ -1,18 +1,27 @@
-import { motion, useMotionValue, useSpring, useTransform } from "motion/react";
-import { useEffect, useState, useRef } from "react";
+import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import {
   ArrowRight,
-  Star,
-  Code2,
   Zap,
-  Coffee,
   MapPin,
-  Command,
-  CloudSun,
   Terminal,
-  Hammer,
-  Cpu,
+  Layers,
+  Calendar,
+  MessageCircle,
+  Rocket,
+  ShieldCheck,
 } from "lucide-react";
+
+const buildStack = [
+  { name: "React", role: "UI" },
+  { name: "TypeScript", role: "Types" },
+  { name: "Next.js", role: "SSR" },
+  { name: "Node.js", role: "API" },
+  { name: "Tailwind", role: "CSS" },
+  { name: "Postgres", role: "Data" },
+  { name: "Motion", role: "UX" },
+  { name: "Cloudflare", role: "Edge" },
+] as const;
 import { BrushStroke } from "./BrushStroke";
 
 /* ------------------------------------------------------------- *
@@ -30,8 +39,6 @@ const TEXT = "#14201a";
 const MUTED = "#5a5f5a";
 const ORANGE = "#e85d3a";      // bold accent
 const STEEL = "#2d3a45";       // deep steel blue
-const RUST = "#9b3a1f";        // rust red
-const EMERALD = "#0d7a5f";
 const GOLD = "#c9a84c";
 
 function useClock() {
@@ -47,35 +54,6 @@ function useClock() {
 }
 
 export function Hero() {
-  /* mouse parallax (subtle) */
-  const mx = useMotionValue(0);
-  const my = useMotionValue(0);
-  const sx = useSpring(mx, { stiffness: 60, damping: 20 });
-  const sy = useSpring(my, { stiffness: 60, damping: 20 });
-  const px1 = useTransform(sx, (v) => v * 18);
-  const py1 = useTransform(sy, (v) => v * 18);
-  const px2 = useTransform(sx, (v) => v * -22);
-  const py2 = useTransform(sy, (v) => v * -22);
-
-  /* parallax mouse tracking for geometric blocks */
-  const heroRef = useRef<HTMLSectionElement>(null);
-
-  useEffect(() => {
-    const onMove = (e: PointerEvent) => {
-      if (!heroRef.current) return;
-      const heroRect = heroRef.current.getBoundingClientRect();
-      const isInHero = e.clientY >= heroRect.top && e.clientY <= heroRect.bottom;
-      if (isInHero) {
-        const w = window.innerWidth;
-        const h = window.innerHeight;
-        mx.set((e.clientX / w - 0.5) * 2);
-        my.set((e.clientY / h - 0.5) * 2);
-      }
-    };
-    window.addEventListener("pointermove", onMove);
-    return () => window.removeEventListener("pointermove", onMove);
-  }, [mx, my]);
-
   const now = useClock();
   // Render time only after the client has set it to avoid hydration mismatches.
   const time = now
@@ -84,7 +62,7 @@ export function Hero() {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
-        hour12: false,
+        hour12: true,
       })
     : "";
 
@@ -113,41 +91,10 @@ export function Hero() {
 
   return (
     <section
-      ref={heroRef}
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden pt-28 pb-20 sm:pt-32 bg-grid-ink"
       style={{ backgroundColor: BG, color: TEXT }}
     >
-      {/* ---------- SOLID BACKGROUND LAYERS (no gradients/blur) ---------- */}
-
-      {/* solid geometric accent blocks */}
-      <motion.div
-        aria-hidden
-        style={{ x: px1, y: py1, backgroundColor: ORANGE }}
-        className="absolute -z-10 top-[14%] right-[6%] w-24 h-24 sm:w-36 sm:h-36 rotate-12 hidden sm:block"
-      />
-      <motion.div
-        aria-hidden
-        style={{ x: px2, y: py2, backgroundColor: STEEL }}
-        className="absolute -z-10 bottom-[10%] left-[4%] w-20 h-20 sm:w-32 sm:h-32 hidden sm:block"
-      />
-      <div
-        aria-hidden
-        className="absolute -z-10 top-[40%] right-[42%] w-10 h-10 hidden md:block"
-        style={{ backgroundColor: GOLD }}
-      />
-      <div
-        aria-hidden
-        className="absolute -z-10 top-[68%] right-[18%] w-6 h-6 rotate-45 hidden md:block"
-        style={{ backgroundColor: RUST }}
-      />
-
-      {/* hard grid */}
-
-
-
-
-      {/* ---------- MAIN GRID ---------- */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         {/* ====== LEFT — copy ====== */}
         <div className="lg:col-span-7 relative">
@@ -287,34 +234,6 @@ export function Hero() {
             <span>npx krish-mishra</span>
             <span style={{ color: GOLD }}>{typedCmd} <motion.span style={{ color: "white" }} animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity }}>▍</motion.span></span>
           </motion.div>
-
-          {/* social proof */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.85 }}
-            className="mt-8 flex items-center gap-4"
-          >
-            <div className="flex -space-x-2">
-              {[ORANGE, STEEL, EMERALD, RUST].map((c, i) => (
-                <div
-                  key={i}
-                  className="w-8 h-8 border-2"
-                  style={{ backgroundColor: c, borderColor: BG, borderRadius: 4 }}
-                />
-              ))}
-            </div>
-            <div className="text-xs sm:text-sm">
-              <div className="flex items-center gap-1" style={{ color: GOLD }}>
-                {Array.from({ length: 5 }).map((_, i) => (
-                  <Star key={i} className="w-3.5 h-3.5 fill-current" />
-                ))}
-              </div>
-              <div className="mt-0.5" style={{ color: MUTED }}>
-                5.0 from 28+ clients
-              </div>
-            </div>
-          </motion.div>
         </div>
 
         {/* ====== RIGHT — bento dashboard (desktop) ====== */}
@@ -333,20 +252,10 @@ export function Hero() {
                 borderRadius: 8,
               }}
             >
-              <div
-                aria-hidden
-                className="absolute top-0 right-0 w-20 h-20"
-                style={{ backgroundColor: ORANGE }}
-              />
-              <div
-                aria-hidden
-                className="absolute top-0 right-0 w-10 h-10"
-                style={{ backgroundColor: GOLD }}
-              />
               <div className="relative flex items-center justify-between">
                 <span className="text-[10px] uppercase tracking-[0.18em] font-mono opacity-70">
                   <MapPin className="w-3 h-3 inline mr-1.5" />
-                  Indore, IN
+                  Raipur, In
                 </span>
               </div>
               <div className="relative mt-10">
@@ -407,55 +316,75 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* weather */}
+            {/* build stack — what clients actually get */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.36 }}
               whileHover={{ y: -4 }}
-              className="col-span-2 row-span-2 p-3.5 flex flex-col justify-between"
-              style={{
-                backgroundColor: SURFACE,
-                border: `1.5px solid ${INK}`,
-                borderRadius: 8,
-              }}
-            >
-              <CloudSun className="w-5 h-5" style={{ color: STEEL }} />
-              <div className="leading-tight">
-                <div className="text-[10px] uppercase tracking-wider font-mono" style={{ color: MUTED }}>
-                  Weather
-                </div>
-                <div className="text-base font-display font-bold" style={{ color: INK }}>
-                  28° Clear
-                </div>
-              </div>
-            </motion.div>
-
-            {/* stack */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.42 }}
-              whileHover={{ y: -4 }}
-              className="col-span-2 row-span-2 p-3.5 flex flex-col justify-between"
+              className="col-span-4 row-span-2 p-4 flex flex-col"
               style={{
                 backgroundColor: STEEL,
                 color: BG,
                 borderRadius: 8,
               }}
             >
-              <Cpu className="w-5 h-5" />
+              <div className="flex items-center justify-between gap-2">
+                <Layers className="w-5 h-5 shrink-0" />
+                <span className="text-[10px] font-mono uppercase tracking-wider opacity-70">
+                  Build stack
+                </span>
+              </div>
+              <p className="text-[11px] font-mono opacity-80 mt-2 leading-snug">
+                Modern tools I ship with — UI, APIs &amp; deploy included.
+              </p>
+              <div className="mt-3 grid grid-cols-4 gap-1.5 flex-1 content-start">
+                {buildStack.map((t) => (
+                  <div
+                    key={t.name}
+                    className="px-1.5 py-1.5 text-center"
+                    style={{
+                      backgroundColor: "rgba(245,240,224,0.12)",
+                      borderRadius: 4,
+                      border: "1px solid rgba(245,240,224,0.2)",
+                    }}
+                  >
+                    <div className="text-[10px] font-semibold leading-tight">{t.name}</div>
+                    <div className="text-[8px] font-mono uppercase opacity-60 mt-0.5">{t.role}</div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* typical delivery */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.42 }}
+              whileHover={{ y: -4 }}
+              className="col-span-2 row-span-2 p-4 flex flex-col justify-between"
+              style={{
+                backgroundColor: SURFACE,
+                border: `1.5px solid ${INK}`,
+                borderRadius: 8,
+                color: INK,
+              }}
+            >
+              <Calendar className="w-5 h-5" style={{ color: ORANGE }} />
               <div className="leading-tight">
-                <div className="text-[10px] uppercase tracking-wider font-mono opacity-70">
-                  Stack
+                <div className="text-[10px] uppercase tracking-wider font-mono" style={{ color: MUTED }}>
+                  Average Delivery
                 </div>
-                <div className="text-sm font-semibold">
-                  React · TS · Node
+                <div className="font-display text-3xl font-bold leading-none mt-1">
+                  1–3<span className="text-lg font-semibold"> weeks</span>
+                </div>
+                <div className="text-[10px] font-mono mt-2" style={{ color: MUTED }}>
+                  Landing · SaaS · product sites
                 </div>
               </div>
             </motion.div>
 
-            {/* coffee */}
+            {/* reply time */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
@@ -466,56 +395,62 @@ export function Hero() {
                 backgroundColor: SURFACE_2,
                 border: `1.5px solid ${INK}`,
                 borderRadius: 8,
+                color: INK,
               }}
             >
-              <Coffee className="w-4 h-4" style={{ color: RUST }} />
-              <div className="leading-tight">
+              <MessageCircle className="w-4 h-4 shrink-0" style={{ color: ORANGE }} />
+              <div className="leading-tight min-w-0">
                 <div className="text-[10px] uppercase tracking-wider font-mono" style={{ color: MUTED }}>
-                  Fuel
+                  Quick Replies
                 </div>
-                <div className="text-[11px] font-semibold" style={{ color: INK }}>
-                  Chai · 4 cups
-                </div>
+                <div className="text-[11px] font-semibold">Within 24h</div>
               </div>
             </motion.div>
 
-            {/* command */}
+            {/* shipped */}
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.54 }}
+              transition={{ duration: 0.6, delay: 0.52 }}
               whileHover={{ y: -4 }}
-              className="col-span-4 row-span-1 px-3.5 py-3 flex items-center gap-2.5"
+              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5"
+              style={{
+                backgroundColor: GOLD,
+                color: INK,
+                borderRadius: 8,
+              }}
+            >
+              <Rocket className="w-4 h-4 shrink-0" />
+              <div className="leading-tight min-w-0">
+                <div className="text-[10px] uppercase tracking-wider font-mono opacity-80">
+                  Delivered
+                </div>
+                <div className="text-[11px] font-bold">23+ projects shipped</div>
+              </div>
+            </motion.div>
+
+            {/* ownership */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.56 }}
+              whileHover={{ y: -4 }}
+              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5"
               style={{
                 backgroundColor: INK,
                 color: BG,
                 borderRadius: 8,
               }}
             >
-              <div
-                className="w-7 h-7 flex items-center justify-center"
-                style={{ backgroundColor: ORANGE, color: INK, borderRadius: 4 }}
-              >
-                <Hammer className="w-3.5 h-3.5" />
-              </div>
-              <div className="leading-tight min-w-0 flex-1">
+              <ShieldCheck className="w-4 h-4 shrink-0" style={{ color: ORANGE }} />
+              <div className="leading-tight min-w-0">
                 <div className="text-[10px] uppercase tracking-wider font-mono opacity-60">
-                  Shortcut
+                  Deliverables
                 </div>
                 <div className="text-[11px] font-semibold">
-                  ⌘K · open command palette
+                  100% Yours <span style={{ color: "#e63946" }}>♥</span>
                 </div>
               </div>
-              <kbd
-                className="text-[10px] font-mono px-1.5 py-0.5"
-                style={{
-                  backgroundColor: BG,
-                  color: INK,
-                  borderRadius: 3,
-                }}
-              >
-                ⌘K
-              </kbd>
             </motion.div>
           </div>
         </div>
@@ -530,13 +465,8 @@ export function Hero() {
               borderRadius: 8,
             }}
           >
-            <div
-              aria-hidden
-              className="absolute top-0 right-0 w-14 h-14"
-              style={{ backgroundColor: ORANGE }}
-            />
             <div className="relative flex items-center justify-between text-[10px] uppercase tracking-widest font-mono opacity-70">
-              <span><MapPin className="w-3 h-3 inline mr-1" />Indore, IN</span>
+              <span><MapPin className="w-3 h-3 inline mr-1" />Raipur, In</span>
               <span>IST</span>
             </div>
             <div className="relative mt-2 font-display text-3xl font-bold tabular-nums">
@@ -544,10 +474,10 @@ export function Hero() {
             </div>
           </div>
           {[
-            { Icon: Cpu, label: "Stack", value: "React · TS", bg: STEEL, fg: BG },
+            { Icon: Layers, label: "Stack", value: "React · Next · Node", bg: STEEL, fg: BG },
             { Icon: Zap, label: "Lighthouse", value: "98 / 100", bg: ORANGE, fg: INK },
-            { Icon: Coffee, label: "Fuel", value: "Chai", bg: SURFACE, fg: INK, border: true },
-            { Icon: CloudSun, label: "Weather", value: "28° Clear", bg: SURFACE_2, fg: INK, border: true },
+            { Icon: Calendar, label: "Delivery", value: "1–3 weeks", bg: SURFACE, fg: INK, border: true },
+            { Icon: MessageCircle, label: "Replies", value: "Within 24h", bg: SURFACE_2, fg: INK, border: true },
           ].map(({ Icon, label, value, bg, fg, border }, i) => (
             <div
               key={i}

@@ -45,22 +45,9 @@ export function Navbar() {
           boxShadow: `3px 3px 0 0 ${INK}`,
         }}
       >
-        <a
-          href="#hero"
-          className="font-display font-bold text-base sm:text-lg flex items-center gap-2"
-          style={{ color: INK }}
-        >
-          <span
-            className="w-7 h-7 flex items-center justify-center text-[11px] font-bold font-mono"
-            style={{
-              backgroundColor: INK,
-              color: BG,
-              borderRadius: 3,
-            }}
-          >
-            KM
-          </span>
-          Krish<span style={{ color: ORANGE }}> Mishra</span>
+        <a href="#hero" className="nav-brand">
+          <span className="nav-brand-krish">Krish</span>
+          <span className="nav-brand-mishra"> Mishra</span>
         </a>
 
         <ul className="hidden lg:flex items-center gap-0.5 text-sm font-medium">
@@ -104,25 +91,7 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <a
             href="#contact"
-            className="hidden sm:inline-flex text-xs font-semibold px-4 py-2.5 transition-all duration-200"
-            style={{
-              backgroundColor: INK,
-              color: BG,
-              borderRadius: 4,
-              boxShadow: `3px 3px 0 0 ${ORANGE}`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translate(-1px, -1px)";
-              e.currentTarget.style.boxShadow = `5px 5px 0 0 ${ORANGE}`;
-              e.currentTarget.style.backgroundColor = ORANGE;
-              e.currentTarget.style.color = INK;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translate(0, 0)";
-              e.currentTarget.style.boxShadow = `3px 3px 0 0 ${ORANGE}`;
-              e.currentTarget.style.backgroundColor = INK;
-              e.currentTarget.style.color = BG;
-            }}
+            className="brut-cta hidden sm:inline-flex text-xs font-semibold px-4 py-2.5"
           >
             Let's Build →
           </a>
@@ -177,13 +146,7 @@ export function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="block px-5 py-3 text-sm font-semibold text-center mt-1"
-              style={{
-                backgroundColor: INK,
-                color: BG,
-                borderRadius: 4,
-                boxShadow: `3px 3px 0 0 ${ORANGE}`,
-              }}
+              className="brut-cta block px-5 py-3 text-sm font-semibold text-center mt-1"
             >
               Let's Build →
             </a>

@@ -1,5 +1,4 @@
-import { motion, useScroll, useTransform } from "motion/react";
-import { useRef } from "react";
+import { motion } from "motion/react";
 import { ArrowUpRight, Eye, Github } from "lucide-react";
 import { BrushStroke } from "./BrushStroke";
 
@@ -84,16 +83,8 @@ const projects = [
 ];
 
 function Card({ p, i }: { p: (typeof projects)[0]; i: number }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [20, -20]);
-
   return (
     <motion.article
-      ref={ref}
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-60px" }}
@@ -115,18 +106,6 @@ function Card({ p, i }: { p: (typeof projects)[0]; i: number }) {
         e.currentTarget.style.boxShadow = `5px 5px 0 0 ${p.shadowColor}`;
       }}
     >
-      {/* decorative circles */}
-      <motion.div
-        aria-hidden
-        className="absolute -bottom-8 -right-8 w-44 h-44 rounded-full border-2 opacity-10"
-        style={{ y, borderColor: p.fg }}
-      />
-      <motion.div
-        aria-hidden
-        className="absolute -bottom-16 -right-16 w-72 h-72 rounded-full border-2 opacity-5"
-        style={{ y, borderColor: p.fg }}
-      />
-
       {/* top row */}
       <div className="relative flex items-start justify-between">
         <div>
@@ -203,18 +182,6 @@ export function Projects() {
       className="relative py-24 sm:py-32 overflow-hidden bg-grid-ink"
       style={{ backgroundColor: BG, color: INK }}
     >
-      {/* geometric accents */}
-      <div
-        aria-hidden
-        className="absolute top-20 right-10 w-16 h-16 rotate-12 hidden md:block"
-        style={{ backgroundColor: ORANGE, opacity: 0.08 }}
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-24 left-6 w-10 h-10 hidden md:block"
-        style={{ backgroundColor: STEEL, opacity: 0.1 }}
-      />
-
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

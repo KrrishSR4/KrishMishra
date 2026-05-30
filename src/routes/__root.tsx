@@ -8,6 +8,9 @@ import {
   Scripts,
 } from "@tanstack/react-router";
 
+import { useState } from "react";
+
+import { PageLoader } from "@/components/PageLoader";
 import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
@@ -91,7 +94,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap",
+        href: "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Space+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap",
       },
     ],
   }),
@@ -117,9 +120,11 @@ function RootShell({ children }: { children: React.ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const [loaderDone, setLoaderDone] = useState(false);
 
   return (
     <QueryClientProvider client={queryClient}>
+      {!loaderDone && <PageLoader onComplete={() => setLoaderDone(true)} />}
       <Outlet />
     </QueryClientProvider>
   );

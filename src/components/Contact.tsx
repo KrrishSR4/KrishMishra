@@ -22,23 +22,6 @@ export function Contact() {
       className="relative py-24 sm:py-32 overflow-hidden bg-grid-ink"
       style={{ backgroundColor: BG, color: INK }}
     >
-      {/* geometric accent blocks */}
-      <div
-        aria-hidden
-        className="absolute top-12 right-10 w-20 h-20 rotate-12 hidden md:block"
-        style={{ backgroundColor: ORANGE, opacity: 0.1 }}
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-16 left-8 w-12 h-12 hidden md:block"
-        style={{ backgroundColor: GOLD, opacity: 0.15 }}
-      />
-      <div
-        aria-hidden
-        className="absolute top-[55%] left-[5%] w-6 h-6 rotate-45 hidden md:block"
-        style={{ backgroundColor: STEEL, opacity: 0.12 }}
-      />
-
       <div className="relative max-w-5xl mx-auto px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -233,21 +216,7 @@ export function Contact() {
 
           <button
             type="submit"
-            className="group justify-self-start inline-flex items-center gap-2 px-7 py-3.5 font-semibold transition-all duration-200"
-            style={{
-              backgroundColor: INK,
-              color: BG,
-              borderRadius: 4,
-              boxShadow: `4px 4px 0 0 ${ORANGE}`,
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.transform = "translate(-2px, -2px)";
-              e.currentTarget.style.boxShadow = `7px 7px 0 0 ${ORANGE}`;
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.transform = "translate(0, 0)";
-              e.currentTarget.style.boxShadow = `4px 4px 0 0 ${ORANGE}`;
-            }}
+            className="brut-cta group justify-self-start inline-flex items-center gap-2 px-7 py-3.5 font-semibold"
           >
             {sent ? "Message sent ✓" : "Send message"}
             <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />

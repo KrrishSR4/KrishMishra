@@ -95,18 +95,6 @@ export function Skills() {
         .group:hover .marquee-track { animation-play-state: paused; }
       `}</style>
 
-      {/* geometric accent blocks */}
-      <div
-        aria-hidden
-        className="absolute top-8 right-8 w-16 h-16 hidden md:block"
-        style={{ backgroundColor: ORANGE, opacity: 0.15 }}
-      />
-      <div
-        aria-hidden
-        className="absolute bottom-12 left-12 w-10 h-10 rotate-45 hidden md:block"
-        style={{ backgroundColor: GOLD, opacity: 0.2 }}
-      />
-
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
