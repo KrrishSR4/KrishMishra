@@ -126,9 +126,9 @@ export function Skills() {
               seed={3}
             />
             <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: "#f5f0e0" }}>
-              Frontend, backend, motion<br />
-              &amp; infrastructure — the full<br />
-              freelance toolkit. Hover to pause.
+              Crafting digital experiences<br />
+              that blend thoughtful design<br />
+              with reliable engineering.
             </p>
           </div>
         </motion.div>

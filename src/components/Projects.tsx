@@ -212,9 +212,9 @@ export function Projects() {
               seed={6}
             />
             <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: INK }}>
-              A glimpse into recent<br />
-              collaborations across SaaS,<br />
-              commerce, and developer tools.
+              Built with purpose.<br />
+              Design to perform.<br />
+              Made to ship.
             </p>
           </div>
         </motion.div>

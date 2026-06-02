@@ -33,15 +33,15 @@ export function About() {
             <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: "#f5f0e0" }}>
               I'm a full-stack engineer and UI specialist<br />
               who cares about pixel-perfect interfaces as much as<br />
-              clean APIs and resilient infra. I work best with<br />
-              small teams who want to move fast without breaking taste.
+              clean APIs and resilient infra. I work best with teams<br />
+              who want to move fast without breaking taste.
             </p>
           </div>
 
           <div className="mt-10 grid grid-cols-3 gap-4">
             {[
-              { n: "60+", l: "Projects" },
-              { n: "28", l: "Clients" },
+              { n: "23+", l: "Projects" },
+              { n: "15+", l: "Clients" },
               { n: "12", l: "Countries" },
             ].map((s) => (
               <div key={s.l} className="bg-card border border-border rounded-2xl p-4 shadow-soft">

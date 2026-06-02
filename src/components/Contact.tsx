@@ -56,9 +56,9 @@ export function Contact() {
               seed={8}
             />
             <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: BG }}>
-              Have a project in mind,<br />
-              or just want to say hi?<br />
-              My inbox is always open.
+              Need a website,<br />
+              that actually stands out?<br />
+              Let's make it happen.
             </p>
           </div>
         </motion.div>
@@ -227,7 +227,7 @@ export function Contact() {
         <div className="mt-14 flex flex-col items-center gap-5">
           <div className="flex items-center gap-3">
             {[
-              { Icon: Github, href: "#", label: "GitHub" },
+              { Icon: Github, href: "https://github.com/KrrishSR4", label: "GitHub" },
               { Icon: Linkedin, href: "#", label: "LinkedIn" },
               { Icon: Twitter, href: "#", label: "Twitter" },
               { Icon: Mail, href: "mailto:krishmishra4444@gmail.com", label: "Email" },

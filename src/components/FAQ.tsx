@@ -62,9 +62,8 @@ export function FAQ() {
               seed={7}
             />
             <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: BG }}>
-              Still curious? Drop a line<br />
-              below and I'll reply within<br />
-              24 hours, weekends included.
+              Didn't find what you needed?<br />
+              Let's clear it up.
             </p>
           </div>
           <a
