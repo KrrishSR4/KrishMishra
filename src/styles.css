@@ -244,6 +244,7 @@
     display: flex;
     justify-content: center;
     overflow: hidden;
+    padding-inline: clamp(0.15rem, 1.2vw, 0.75rem);
   }
   .page-loader__title {
     font-family: var(--font-brand);
@@ -403,18 +404,21 @@
 
   @media (max-width: 640px) {
     .page-loader {
-      padding: 0.55rem;
+      padding: 0.42rem;
       place-items: center;
     }
     .page-loader__shell {
-      width: min(94vw, 390px);
+      width: min(97vw, 430px);
       gap: 0.78rem;
-      padding: 0.85rem 0.95rem;
+      padding: 0.85rem 0.78rem;
       border-radius: 8px;
     }
+    .page-loader__title-wrap {
+      padding-inline: 0.1rem;
+    }
     .page-loader__title {
-      font-size: clamp(1.45rem, 9cqi, 2.25rem);
-      letter-spacing: -0.045em;
+      font-size: clamp(1.55rem, 7.1cqi, 2rem);
+      letter-spacing: -0.075em;
     }
     .page-loader__tagline {
       margin: 0.25rem 0 0.45rem;

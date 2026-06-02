@@ -82,17 +82,16 @@ export function PageLoader({ onComplete }: PageLoaderProps) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           >
-             <div className="page-loader__title-wrap" style={{ padding: '0 clamp(1rem, 4vw, 2rem)' }}>
-             <motion.div
-                 className="page-loader__title"
-                 initial={{ opacity: 0, y: 12 }}
-                 animate={{ opacity: 1, y: 0 }}
-                 transition={{ duration: 0.45 }}
-                 style={{ fontSize: 'clamp(2.5rem, 8vw, 4rem)', letterSpacing: '-0.02em' }}
-               >
-                 <span style={{ color: INK }}>Krish </span>
-                 <span style={{ color: ORANGE }}>Mishra</span>
-               </motion.div>
+            <div className="page-loader__title-wrap">
+              <motion.div
+                className="page-loader__title"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45 }}
+              >
+                <span style={{ color: INK }}>Krish </span>
+                <span style={{ color: ORANGE }}>Mishra</span>
+              </motion.div>
             </div>
             <p className="page-loader__tagline font-mono uppercase">
               Full-stack dev &amp; UI engineer
