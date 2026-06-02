@@ -7,6 +7,7 @@ const INK = "#14201a";
 const ORANGE = "#e85d3a";
 const CREAM = "#f5f0e0";
 const MIN_MS = 2200;
+const EXIT_DELAY_MS = 320;
 
 const stack = ["React", "TypeScript", "Next.js", "Node", "Tailwind", "Motion"];
 
@@ -29,28 +30,39 @@ export function PageLoader({ onComplete }: PageLoaderProps) {
   useEffect(() => {
     document.body.style.overflow = "hidden";
     const start = Date.now();
+    const timers: number[] = [];
+    let ready = false;
 
-    const tick = window.setInterval(() => {
-      setProgress((p) => {
-        if (p >= 96) return p;
-        return p + Math.random() * 10 + 3;
-      });
-    }, 110);
+    const schedule = (callback: () => void, delay: number) => {
+      const timer = window.setTimeout(callback, delay);
+      timers.push(timer);
+      return timer;
+    };
+
+    schedule(() => setProgress(18), 180);
+    schedule(() => setProgress(38), 420);
+    schedule(() => setProgress(49), 680);
+    schedule(() => setProgress(70), 1320);
+
+    const finish = () => {
+      if (!ready) return;
+      const wait = Math.max(0, MIN_MS - (Date.now() - start));
+      schedule(() => {
+        setProgress(100);
+        schedule(() => setExiting(true), EXIT_DELAY_MS);
+      }, wait);
+    };
 
     const done = () => {
-      const wait = Math.max(0, MIN_MS - (Date.now() - start));
-      window.setTimeout(() => {
-        window.clearInterval(tick);
-        setProgress(100);
-        window.setTimeout(() => setExiting(true), 320);
-      }, wait);
+      ready = true;
+      finish();
     };
 
     if (document.readyState === "complete") done();
     else window.addEventListener("load", done, { once: true });
 
     return () => {
-      window.clearInterval(tick);
+      timers.forEach(window.clearTimeout);
       window.removeEventListener("load", done);
     };
   }, []);
