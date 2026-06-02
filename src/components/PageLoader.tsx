@@ -42,7 +42,7 @@ export function PageLoader({ onComplete }: PageLoaderProps) {
     schedule(() => setProgress(18), 180);
     schedule(() => setProgress(38), 420);
     schedule(() => setProgress(49), 680);
-    schedule(() => setProgress(70), 1320);
+    schedule(() => setProgress(70), 1750);
 
     const finish = () => {
       if (!ready) return;

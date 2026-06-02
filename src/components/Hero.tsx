@@ -474,14 +474,60 @@ export function Hero() {
             </div>
           </div>
           {[
-            { Icon: Layers, label: "Stack", value: "React · Next · Node", bg: STEEL, fg: BG },
-            { Icon: Zap, label: "Lighthouse", value: "98 / 100", bg: ORANGE, fg: INK },
-            { Icon: Calendar, label: "Delivery", value: "1–3 weeks", bg: SURFACE, fg: INK, border: true },
-            { Icon: MessageCircle, label: "Replies", value: "Within 24h", bg: SURFACE_2, fg: INK, border: true },
-          ].map(({ Icon, label, value, bg, fg, border }, i) => (
+            {
+              Icon: Layers,
+              label: "Build stack",
+              value: "React · TypeScript · Next.js · Node",
+              bg: STEEL,
+              fg: BG,
+              span: "col-span-4",
+            },
+            {
+              Icon: Zap,
+              label: "Lighthouse",
+              value: "98 / 100",
+              bg: ORANGE,
+              fg: INK,
+              span: "col-span-2",
+            },
+            {
+              Icon: Calendar,
+              label: "Delivery",
+              value: "1–3 weeks",
+              bg: SURFACE,
+              fg: INK,
+              border: true,
+              span: "col-span-2",
+            },
+            {
+              Icon: MessageCircle,
+              label: "Replies",
+              value: "Within 24h",
+              bg: SURFACE_2,
+              fg: INK,
+              border: true,
+              span: "col-span-2",
+            },
+            {
+              Icon: Rocket,
+              label: "Delivered",
+              value: "23+ projects shipped",
+              bg: GOLD,
+              fg: INK,
+              span: "col-span-2",
+            },
+            {
+              Icon: ShieldCheck,
+              label: "Deliverables",
+              value: "100% Yours",
+              bg: INK,
+              fg: BG,
+              span: "col-span-2",
+            },
+          ].map(({ Icon, label, value, bg, fg, border, span }, i) => (
             <div
               key={i}
-              className="col-span-2 px-3 py-2.5 flex items-center gap-2"
+              className={`${span} min-h-16 px-3 py-3 flex items-center gap-2.5`}
               style={{
                 backgroundColor: bg,
                 color: fg,
@@ -494,7 +540,7 @@ export function Hero() {
                 <div className="text-[9px] uppercase tracking-wider font-mono opacity-70">
                   {label}
                 </div>
-                <div className="text-[11px] font-semibold truncate">
+                <div className="text-[11px] font-semibold leading-tight">
                   {value}
                 </div>
               </div>
