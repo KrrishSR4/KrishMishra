@@ -2,10 +2,10 @@ import { motion } from "motion/react";
 import { BrushStroke } from "./BrushStroke";
 
 const timeline = [
-  { year: "2025", title: "Freelance · Krish Mishra Studio", desc: "Partnering with founders globally to design and ship premium web products end-to-end." },
-  { year: "2023", title: "Senior Full-stack · Northwind", desc: "Led the rewrite of a multi-tenant analytics platform serving 40k orgs." },
-  { year: "2021", title: "Product Engineer · Quay", desc: "Built a design system + checkout flow that lifted conversion by 28%." },
-  { year: "2019", title: "Started coding professionally", desc: "First client work. First production bug. First lesson in humility." },
+  { year: "2023", title: "Started Programming Journey", desc: "Built my first websites, explored frontend development, and discovered a passion for creating digital experiences." },
+  { year: "2024", title: "Full Stack Development", desc: "Expanded into backend development, databases, and modern web application architecture." },
+  { year: "2025", title: "Portfolio & Personal Brand", desc: "Focused on building a strong portfolio, refining design skills, and showcasing real-world projects." },
+  { year: "2026", title: "Freelance Web Developer", desc: "Helping businesses and founders build fast, modern, and user-focused web experiences." },
 ];
 
 export function About() {
@@ -22,7 +22,7 @@ export function About() {
           <p className="text-xs sm:text-sm font-semibold text-emerald mb-3 tracking-[0.2em] uppercase">— About Krish</p>
 <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
               Freelance Full Stack Developer Portfolio<br/>
-              <span className="text-emerald italic font-light">Six years turning ideas</span> into shipped products.
+              <span className="text-emerald italic font-light">Turning ideas</span> into shipped products.
             </h2>
           <div className="relative mt-7 w-fit -rotate-1">
             <BrushStroke
@@ -31,10 +31,10 @@ export function About() {
               seed={2}
             />
             <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: "#f5f0e0" }}>
-              I'm a full-stack engineer and UI specialist<br />
-              who cares about pixel-perfect interfaces as much as<br />
-              clean APIs and resilient infra. I work best with teams<br />
-              who want to move fast without breaking taste.
+              I build modern websites,<br />
+              web applications and digital<br />
+              experiences focused on speed,<br />
+              usability and business growth.
             </p>
           </div>
 
@@ -42,12 +42,18 @@ export function About() {
             {[
               { n: "23+", l: "Projects" },
               { n: "15+", l: "Clients" },
-              { n: "12", l: "Countries" },
+              { n: "100%", l: "On-Time Delivery" },
             ].map((s) => (
-              <div key={s.l} className="bg-card border border-border rounded-2xl p-4 shadow-soft">
+              <motion.div
+                key={s.l}
+                whileHover={{ y: -4, scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: "spring", stiffness: 360, damping: 22 }}
+                className="bg-card border border-border rounded-2xl p-4 shadow-soft cursor-default"
+              >
                 <div className="text-2xl sm:text-3xl font-display font-bold text-emerald">{s.n}</div>
                 <div className="text-[11px] sm:text-xs text-muted-foreground mt-1 uppercase tracking-wider">{s.l}</div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </motion.div>
@@ -60,12 +66,14 @@ export function About() {
                 key={t.year}
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
+                whileHover={{ x: 6 }}
                 viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="relative pl-10"
+                transition={{ type: "spring", stiffness: 340, damping: 26, delay: i * 0.08 }}
+                className="relative pl-10 cursor-default"
               >
                 <motion.span
                   whileInView={{ scale: [0, 1.3, 1] }}
+                  whileHover={{ scale: 1.25 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: i * 0.08 + 0.1 }}
                   className="absolute left-0 top-1.5 w-4 h-4 rounded-full bg-gold border-2 border-background shadow-soft"

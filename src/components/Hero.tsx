@@ -244,12 +244,22 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -4 }}
-              className="col-span-4 row-span-3 p-5 relative overflow-hidden"
+              className="col-span-4 row-span-3 p-5 relative overflow-hidden transition-all duration-300 cursor-default"
               style={{
                 backgroundColor: INK,
                 color: BG,
                 borderRadius: 8,
+                borderTop: `2px solid ${ORANGE}`,
+                borderLeft: `2px solid ${ORANGE}`,
+                boxShadow: `5px 5px 0 0 ${ORANGE}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${ORANGE}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${ORANGE}`;
               }}
             >
               <div className="relative flex items-center justify-between">
@@ -282,12 +292,20 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.28 }}
-              whileHover={{ y: -4 }}
-              className="col-span-2 row-span-3 p-4 flex flex-col justify-between"
+              className="col-span-2 row-span-3 p-4 flex flex-col justify-between transition-all duration-300 cursor-default"
               style={{
                 backgroundColor: ORANGE,
                 color: INK,
                 borderRadius: 8,
+                boxShadow: `5px 5px 0 0 ${INK}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${INK}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${INK}`;
               }}
             >
               <div className="flex items-center justify-between">
@@ -321,12 +339,20 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.36 }}
-              whileHover={{ y: -4 }}
-              className="col-span-4 row-span-2 p-4 flex flex-col"
+              className="col-span-4 row-span-2 p-4 flex flex-col transition-all duration-300 cursor-default"
               style={{
                 backgroundColor: STEEL,
                 color: BG,
                 borderRadius: 8,
+                boxShadow: `5px 5px 0 0 ${INK}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${ORANGE}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${INK}`;
               }}
             >
               <div className="flex items-center justify-between gap-2">
@@ -361,13 +387,21 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.42 }}
-              whileHover={{ y: -4 }}
-              className="col-span-2 row-span-2 p-4 flex flex-col justify-between"
+              className="col-span-2 row-span-2 p-4 flex flex-col justify-between transition-all duration-300 cursor-default"
               style={{
                 backgroundColor: SURFACE,
                 border: `1.5px solid ${INK}`,
                 borderRadius: 8,
                 color: INK,
+                boxShadow: `5px 5px 0 0 ${INK}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${INK}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${INK}`;
               }}
             >
               <Calendar className="w-5 h-5" style={{ color: ORANGE }} />
@@ -389,13 +423,21 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.48 }}
-              whileHover={{ y: -4 }}
-              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5"
+              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5 transition-all duration-300 cursor-default"
               style={{
                 backgroundColor: SURFACE_2,
                 border: `1.5px solid ${INK}`,
                 borderRadius: 8,
                 color: INK,
+                boxShadow: `5px 5px 0 0 ${INK}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${INK}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${INK}`;
               }}
             >
               <MessageCircle className="w-4 h-4 shrink-0" style={{ color: ORANGE }} />
@@ -412,12 +454,21 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.52 }}
-              whileHover={{ y: -4 }}
-              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5"
+              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5 transition-all duration-300 cursor-default"
               style={{
                 backgroundColor: GOLD,
                 color: INK,
                 borderRadius: 8,
+                border: `1.5px solid ${INK}`,
+                boxShadow: `5px 5px 0 0 ${INK}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${INK}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${INK}`;
               }}
             >
               <Rocket className="w-4 h-4 shrink-0" />
@@ -434,12 +485,22 @@ export function Hero() {
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.56 }}
-              whileHover={{ y: -4 }}
-              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5"
+              className="col-span-2 row-span-1 px-3.5 py-3 flex items-center gap-2.5 transition-all duration-300 cursor-default"
               style={{
                 backgroundColor: INK,
                 color: BG,
                 borderRadius: 8,
+                borderTop: `2px solid ${ORANGE}`,
+                borderLeft: `2px solid ${ORANGE}`,
+                boxShadow: `5px 5px 0 0 ${ORANGE}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${ORANGE}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${ORANGE}`;
               }}
             >
               <ShieldCheck className="w-4 h-4 shrink-0" style={{ color: ORANGE }} />
@@ -481,6 +542,7 @@ export function Hero() {
               bg: STEEL,
               fg: BG,
               span: "col-span-4",
+              hover: ORANGE,
             },
             {
               Icon: Zap,
@@ -489,6 +551,7 @@ export function Hero() {
               bg: ORANGE,
               fg: INK,
               span: "col-span-2",
+              hover: INK,
             },
             {
               Icon: Calendar,
@@ -498,6 +561,7 @@ export function Hero() {
               fg: INK,
               border: true,
               span: "col-span-2",
+              hover: INK,
             },
             {
               Icon: MessageCircle,
@@ -507,6 +571,7 @@ export function Hero() {
               fg: INK,
               border: true,
               span: "col-span-2",
+              hover: INK,
             },
             {
               Icon: Rocket,
@@ -515,6 +580,7 @@ export function Hero() {
               bg: GOLD,
               fg: INK,
               span: "col-span-2",
+              hover: INK,
             },
             {
               Icon: ShieldCheck,
@@ -523,16 +589,26 @@ export function Hero() {
               bg: INK,
               fg: BG,
               span: "col-span-2",
+              hover: INK,
             },
-          ].map(({ Icon, label, value, bg, fg, border, span }, i) => (
-            <div
+          ].map(({ Icon, label, value, bg, fg, border, span, hover }, i) => (
+            <motion.div
               key={i}
-              className={`${span} min-h-16 px-3 py-3 flex items-center gap-2.5`}
+              className={`${span} min-h-16 px-3 py-3 flex items-center gap-2.5 transition-all duration-300 cursor-default`}
               style={{
                 backgroundColor: bg,
                 color: fg,
                 border: border ? `1.5px solid ${INK}` : "none",
                 borderRadius: 8,
+                boxShadow: `5px 5px 0 0 ${INK}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${hover}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${INK}`;
               }}
             >
               <Icon className="w-3.5 h-3.5" />
@@ -544,7 +620,7 @@ export function Hero() {
                   {value}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
