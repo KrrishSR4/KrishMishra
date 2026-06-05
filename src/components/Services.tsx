@@ -1,14 +1,17 @@
-import { motion } from "motion/react";
 import { Layout, Code2, Server, Sparkles, Gauge, LifeBuoy } from "lucide-react";
+import { motion } from "motion/react";
 import { BrushStroke } from "./BrushStroke";
+
+const ORANGE = "#e85d3a";
+const INK = "#14201a";
 
 const services = [
   { Icon: Layout, title: "Web Design & UI", desc: "Pixel-perfect, conversion-focused interfaces designed in Figma and built in code.", tag: "Design" },
-  { Icon: Code2, title: "Frontend Engineering", desc: "React, Next.js, Angular & Tailwind — component systems that scale with your team.", tag: "Frontend" },
-  { Icon: Server, title: "Backend & APIs", desc: "Node, Express, MongoDB & Postgres. Secure, typed REST and realtime endpoints.", tag: "Backend" },
-  { Icon: Sparkles, title: "Animations & Micro-UX", desc: "Framer Motion + GSAP choreography that elevates products from good to memorable.", tag: "Motion" },
-  { Icon: Gauge, title: "Performance & SEO", desc: "Edge-deployed apps on Cloudflare & Vercel — fast Core Web Vitals and indexable by default.", tag: "Perf" },
-  { Icon: LifeBuoy, title: "Long-term Retainers", desc: "Monthly retainers for shipping features, fixing bugs, and growing your product weekly.", tag: "Care" },
+  { Icon: Code2, title: "Frontend Development", desc: "Modern, responsive interfaces built with React, Next.js and industry-leading tools.", tag: "Frontend" },
+  { Icon: Server, title: "Backend Development", desc: "Secure, scalable systems that power websites, apps and business workflows.", tag: "Backend" },
+  { Icon: Sparkles, title: "Animations & Interactions", desc: "Smooth animations and thoughtful details that make products feel alive.", tag: "Motion" },
+  { Icon: Gauge, title: "Performance & SEO", desc: "Fast-loading websites optimized for visibility, traffic and conversions.", tag: "Perf" },
+  { Icon: LifeBuoy, title: "Ongoing Support", desc: "Regular updates, fixes and improvements to keep your website running smoothly.", tag: "Care" },
 ];
 
 export function Services() {
@@ -32,12 +35,12 @@ export function Services() {
               className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
               seed={4}
             />
-            <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: "#f5f0e0" }}>
-              End-to-end product engineering<br />
-              for founders who want a single,<br />
-              senior partner — from first sketch<br />
-              to shipped feature.
-            </p>
+<p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: "#f5f0e0" }}>
+               Building modern websites,<br />
+               web applications and digital<br />
+               experiences that help businesses<br />
+               stand out online.<br />
+             </p>
           </div>
         </motion.div>
 
@@ -50,6 +53,21 @@ export function Services() {
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.55, delay: (i % 3) * 0.08 }}
               className="group relative brut-card p-6 sm:p-7 overflow-hidden"
+              style={{
+                backgroundColor: "#f5f0e0",
+                border: `2px solid ${INK}`,
+                borderRadius: 8,
+                color: INK,
+                boxShadow: `5px 5px 0 0 ${ORANGE}`,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-3px, -3px)";
+                e.currentTarget.style.boxShadow = `9px 9px 0 0 ${ORANGE}`;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `5px 5px 0 0 ${ORANGE}`;
+              }}
             >
               <div className="relative">
                 <div className="flex items-center justify-between">

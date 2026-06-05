@@ -153,8 +153,8 @@ export function Skills() {
         <div className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6 text-center">
           {[
             { n: "18+", l: "Technologies" },
-            { n: "6 yrs", l: "Production exp." },
-            { n: "99", l: "Avg Lighthouse" },
+            { n: "4 years", l: "Production exp." },
+            { n: "98", l: "Avg Lighthouse" },
             { n: "24h", l: "Reply time" },
           ].map((s) => (
             <div
