@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Send, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Send, Github, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { BrushStroke } from "./BrushStroke";
 
@@ -185,13 +185,14 @@ export function Contact() {
           <div className="flex items-center gap-3">
             {[
               { Icon: Github, href: "https://github.com/KrrishSR4", label: "GitHub" },
-              { Icon: Linkedin, href: "#", label: "LinkedIn" },
-              { Icon: Twitter, href: "#", label: "Twitter" },
               { Icon: Mail, href: "mailto:krishmishra4444@gmail.com", label: "Email" },
+              { Icon: MessageCircle, href: "https://wa.me/919304767761", label: "WhatsApp" },
             ].map(({ Icon, href, label }, i) => (
               <motion.a
                 key={i}
                 href={href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={label}
                 whileHover={{ y: -3 }}
                 className="w-11 h-11 flex items-center justify-center transition-all duration-200"
