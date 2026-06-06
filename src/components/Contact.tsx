@@ -1,15 +1,13 @@
 import { motion } from "motion/react";
-import { Send, CheckCircle2, ArrowUpRight, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Send, Github, Linkedin, Twitter, Mail } from "lucide-react";
 import { useState } from "react";
 import { BrushStroke } from "./BrushStroke";
 
 /* Hero-matching palette */
 const BG = "#f5f0e0";
 const SURFACE = "#fbf7ea";
-const SURFACE_2 = "#ece5d0";
 const INK = "#14201a";
 const ORANGE = "#e85d3a";
-const STEEL = "#2d3a45";
 const GOLD = "#c9a84c";
 const MUTED = "#5a5f5a";
 
@@ -138,52 +136,6 @@ export function Contact() {
               />
             </label>
           </div>
-
-          <label className="grid gap-2">
-            <span
-              className="text-xs font-semibold uppercase tracking-wider font-mono"
-              style={{ color: MUTED }}
-            >
-              Budget
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {["< $2k", "$2k – $5k", "$5k – $10k", "$10k+"].map((b) => (
-                <label key={b} className="cursor-pointer">
-                  <input type="radio" name="budget" className="peer sr-only" />
-                  <span
-                    className="block px-4 py-2 text-sm font-semibold transition-all duration-200 peer-checked:text-white"
-                    style={{
-                      backgroundColor: BG,
-                      border: `1.5px solid ${INK}`,
-                      borderRadius: 4,
-                      color: INK,
-                    }}
-                    onMouseEnter={(e) => {
-                      if (!e.currentTarget.previousElementSibling || !(e.currentTarget.previousElementSibling as HTMLInputElement).checked) {
-                        e.currentTarget.style.borderColor = ORANGE;
-                      }
-                    }}
-                    onMouseLeave={(e) => {
-                      if (!e.currentTarget.previousElementSibling || !(e.currentTarget.previousElementSibling as HTMLInputElement).checked) {
-                        e.currentTarget.style.borderColor = INK;
-                      }
-                    }}
-                  >
-                    {b}
-                  </span>
-                </label>
-              ))}
-            </div>
-          </label>
-
-          <style>{`
-            input[type="radio"]:checked + span {
-              background-color: ${INK} !important;
-              color: ${BG} !important;
-              border-color: ${INK} !important;
-              box-shadow: 3px 3px 0 0 ${ORANGE};
-            }
-          `}</style>
 
           <label className="grid gap-2">
             <span

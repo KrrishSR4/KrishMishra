@@ -12,12 +12,13 @@ const GOLD = "#c9a84c";
 const MUTED = "#5a5f5a";
 
 const faqs = [
-  { q: "What's your typical project timeline?", a: "Most landing pages ship in 1–2 weeks. Full web apps and SaaS MVPs take 4–8 weeks depending on scope. You'll get a fixed timeline before we start." },
-  { q: "Do you work solo or with a team?", a: "I run lead on every project. For bigger builds I bring in a trusted pod — a designer, a backend engineer, and a QA — that I've shipped with for years." },
-  { q: "How do you price projects?", a: "Fixed-scope quotes for one-off projects. Monthly retainers from $3.5k for ongoing work. Equity/cash splits possible for vetted seed-stage founders." },
-  { q: "Will I own the code?", a: "100%. You get a clean GitHub repo, full documentation, and a one-hour handoff call. No vendor lock-in, no proprietary plugins." },
-  { q: "Do you offer post-launch support?", a: "Every project includes 30 days of free post-launch polish. After that, retainers start at $1.5k/mo for maintenance, bug fixes, and small features." },
-  { q: "Where are you based & do you travel?", a: "Based in India, working with founders across US, EU and APAC. Async-first with overlapping live hours scheduled weekly. Happy to fly out for kickoffs." },
+  { q: "What's your typical project timeline?", a: "Most websites take 1–3 weeks, while larger web applications can take 4–8 weeks depending on features, feedback cycles and project scope." },
+  { q: "Do you work solo or with a team?", a: "I primarily work independently and handle design, development and deployment. For specialized requirements, I can collaborate with trusted professionals when needed." },
+  { q: "How do you price projects?", a: "Pricing depends on the project scope, complexity and timeline. After understanding your requirements, I provide a clear fixed-price or milestone-based proposal." },
+  { q: "Will I own the code and assets?", a: "Yes. Once the project is completed and payment is settled, you receive full ownership of the code, assets and project deliverables." },
+  { q: "Do you offer post-launch support?", a: "Yes. I provide post-launch support for bug fixes, updates and improvements to ensure everything runs smoothly after launch." },
+  { q: "What technologies do you work with?", a: "I work primarily with React, Next.js, TypeScript, Node.js, Tailwind CSS and modern web technologies to build fast and reliable digital products." },
+  { q: "Can you redesign an existing website?", a: "Yes. I can improve the design, performance, user experience and overall functionality of existing websites while preserving important content and features." },
 ];
 
 export function FAQ() {

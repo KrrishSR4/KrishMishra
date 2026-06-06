@@ -14,7 +14,6 @@ import { ScrollToTop } from "@/components/ScrollToTop";
 import { Services } from "@/components/Services";
 import { Skills } from "@/components/Skills";
 import { SmoothScroll } from "@/components/SmoothScroll";
-import { Testimonials } from "@/components/Testimonials";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +30,6 @@ function Portfolio() {
         <Services />
         <Process />
         <Projects />
-        <Testimonials />
         <FAQ />
         <Contact />
       </main>
