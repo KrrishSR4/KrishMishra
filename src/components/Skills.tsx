@@ -1,8 +1,23 @@
 import { motion } from "motion/react";
 import {
-  SiReact, SiNextdotjs, SiAngular, SiTailwindcss, SiTypescript,
-  SiNodedotjs, SiExpress, SiMongodb, SiPostgresql, SiRedis, SiFirebase, SiCloudflare,
-  SiFramer, SiGreensock, SiFigma, SiGithub, SiDocker, SiPostman,
+  SiReact,
+  SiNextdotjs,
+  SiAngular,
+  SiTailwindcss,
+  SiTypescript,
+  SiNodedotjs,
+  SiExpress,
+  SiMongodb,
+  SiPostgresql,
+  SiRedis,
+  SiFirebase,
+  SiCloudflare,
+  SiFramer,
+  SiGreensock,
+  SiFigma,
+  SiGithub,
+  SiDocker,
+  SiPostman,
 } from "react-icons/si";
 import { BrushStroke } from "./BrushStroke";
 
@@ -37,7 +52,15 @@ const skills = [
   { Icon: SiPostman, color: "#FF6C37", name: "Postman" },
 ];
 
-function Row({ list, reverse = false, duration = 38 }: { list: typeof skills; reverse?: boolean; duration?: number }) {
+function Row({
+  list,
+  reverse = false,
+  duration = 38,
+}: {
+  list: typeof skills;
+  reverse?: boolean;
+  duration?: number;
+}) {
   return (
     <div className="group relative overflow-hidden py-3">
       <div
@@ -125,9 +148,14 @@ export function Skills() {
               className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
               seed={3}
             />
-            <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: "#f5f0e0" }}>
-              Crafting digital experiences<br />
-              that blend thoughtful design<br />
+            <p
+              className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3"
+              style={{ color: "#f5f0e0" }}
+            >
+              Crafting digital experiences
+              <br />
+              that blend thoughtful design
+              <br />
               with reliable engineering.
             </p>
           </div>
@@ -177,7 +205,10 @@ export function Skills() {
               <div className="font-display text-2xl sm:text-3xl font-bold" style={{ color: GOLD }}>
                 {s.n}
               </div>
-              <div className="text-xs mt-1 uppercase tracking-wider" style={{ color: "rgba(245,240,224,0.6)" }}>
+              <div
+                className="text-xs mt-1 uppercase tracking-wider"
+                style={{ color: "rgba(245,240,224,0.6)" }}
+              >
                 {s.l}
               </div>
             </div>

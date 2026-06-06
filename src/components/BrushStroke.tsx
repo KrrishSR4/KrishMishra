@@ -10,27 +10,27 @@ export function BrushStroke({
   const elements = [];
 
   const random = (i: number) => {
-    let x = Math.sin(seed * 1337 + i + 1) * 10000;
+    const x = Math.sin(seed * 1337 + i + 1) * 10000;
     return x - Math.floor(x);
   };
 
   // Generate a massive number of thin, overlapping bristles
   const totalBristles = 250;
-  
+
   for (let i = 0; i < totalBristles; i++) {
     // Distribute bristles vertically across 0-100.
     // Concentrate heavily in the middle (20 to 80) to ensure text legibility.
     // u will be from -1 to 1, biased towards center.
-    let u = (random(i * 10) + random(i * 11) + random(i * 12) - 1.5) / 1.5; 
-    
-    const y = 50 + (u * 50); // 0 to 100
+    const u = (random(i * 10) + random(i * 11) + random(i * 12) - 1.5) / 1.5;
+
+    const y = 50 + u * 50; // 0 to 100
     const distanceFromCenter = Math.abs(u); // 0 to 1
-    
+
     // Bristles near the top/bottom edges start later and end earlier (tapering).
     // Central bristles span almost the full width.
-    let startX = 0 + (distanceFromCenter * 15) + (random(i * 13) * 15);
-    let endX = 100 - (distanceFromCenter * 15) - (random(i * 14) * 15);
-    
+    let startX = 0 + distanceFromCenter * 15 + random(i * 13) * 15;
+    let endX = 100 - distanceFromCenter * 15 - random(i * 14) * 15;
+
     // Streaks shooting out aggressively (dry brush extending)
     if (random(i * 15) > 0.9) {
       endX += 5 + random(i * 16) * 15;
@@ -38,7 +38,7 @@ export function BrushStroke({
     if (random(i * 17) > 0.92) {
       startX -= 5 + random(i * 18) * 15;
     }
-    
+
     // Chunks of missing paint (bristles that ran dry early)
     if (random(i * 19) > 0.8) {
       endX -= 10 + random(i * 20) * 30;
@@ -54,7 +54,7 @@ export function BrushStroke({
     // Thickness: thin for individual bristle texture.
     const isStray = distanceFromCenter > 0.7;
     const strokeWidth = isStray ? 0.5 + random(i * 24) * 1.5 : 1.5 + random(i * 25) * 3;
-    
+
     // Opacity: Solid in the center, transparent at edges
     const opacity = isStray ? 0.4 + random(i * 26) * 0.4 : 0.8 + random(i * 27) * 0.2;
 
@@ -66,12 +66,12 @@ export function BrushStroke({
         strokeWidth={strokeWidth}
         strokeLinecap="butt" // Sharp, hard bristle ends
         opacity={opacity}
-      />
+      />,
     );
   }
 
   // Slight global rotation for dynamic feel
-  const rotation = (random(999) * 4) - 2;
+  const rotation = random(999) * 4 - 2;
 
   const filterId = `acrylic-brush-${seed}-${color.replace("#", "")}`;
 

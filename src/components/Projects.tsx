@@ -109,9 +109,7 @@ function Card({ p, i }: { p: (typeof projects)[0]; i: number }) {
       {/* top row */}
       <div className="relative flex items-start justify-between">
         <div>
-          <div
-            className="text-[11px] uppercase tracking-widest opacity-70 mb-1 font-mono"
-          >
+          <div className="text-[11px] uppercase tracking-widest opacity-70 mb-1 font-mono">
             {p.tag}
           </div>
           <div className="text-xs opacity-50 font-mono">
@@ -132,14 +130,8 @@ function Card({ p, i }: { p: (typeof projects)[0]; i: number }) {
 
       {/* bottom content */}
       <div className="relative mt-8">
-        <h3
-          className="font-display text-2xl sm:text-3xl font-semibold leading-tight"
-        >
-          {p.title}
-        </h3>
-        <p className="text-sm opacity-80 mt-2 leading-relaxed max-w-md">
-          {p.desc}
-        </p>
+        <h3 className="font-display text-2xl sm:text-3xl font-semibold leading-tight">{p.title}</h3>
+        <p className="text-sm opacity-80 mt-2 leading-relaxed max-w-md">{p.desc}</p>
       </div>
 
       {/* Hover quick actions */}
@@ -183,78 +175,85 @@ export function Projects() {
       style={{ backgroundColor: BG, color: INK }}
     >
       <div className="relative max-w-7xl mx-auto px-5 sm:px-8">
-         <motion.div
-           initial={{ opacity: 0, y: 20 }}
-           whileInView={{ opacity: 1, y: 0 }}
-           viewport={{ once: true }}
-           transition={{ duration: 0.6 }}
-           className="mb-12 sm:mb-16"
-         >
-           <div className="flex items-end justify-between flex-wrap gap-6">
-             <div>
-               <p
-                 className="text-xs sm:text-sm font-semibold mb-3 tracking-[0.2em] uppercase font-mono"
-                 style={{ color: ORANGE }}
-               >
-                 — Selected Work
-               </p>
-               <h2
-                 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-2xl font-display"
-                 style={{ color: INK }}
-               >
-                 <span className="block">Featured Projects</span>
-                 <span className="block text-3xl sm:text-4xl md:text-5xl font-medium">A closer look at recent work.</span>
-               </h2>
-             </div>
-             <div className="relative mt-5 w-fit -rotate-1 shrink-0">
-               <BrushStroke
-                 color="#F7B801"
-                 className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
-                 seed={6}
-               />
-               <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: INK }}>
-                 Built with purpose.<br />
-                 Design to perform.<br />
-                 Made to ship.
-               </p>
-             </div>
-           </div>
-         </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 sm:mb-16"
+        >
+          <div className="flex items-end justify-between flex-wrap gap-6">
+            <div>
+              <p
+                className="text-xs sm:text-sm font-semibold mb-3 tracking-[0.2em] uppercase font-mono"
+                style={{ color: ORANGE }}
+              >
+                — Selected Work
+              </p>
+              <h2
+                className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight max-w-2xl font-display"
+                style={{ color: INK }}
+              >
+                <span className="block">Featured Projects</span>
+                <span className="block text-3xl sm:text-4xl md:text-5xl font-medium">
+                  A closer look at recent work.
+                </span>
+              </h2>
+            </div>
+            <div className="relative mt-5 w-fit -rotate-1 shrink-0">
+              <BrushStroke
+                color="#F7B801"
+                className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
+                seed={6}
+              />
+              <p
+                className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3"
+                style={{ color: INK }}
+              >
+                Built with purpose.
+                <br />
+                Design to perform.
+                <br />
+                Made to ship.
+              </p>
+            </div>
+          </div>
+        </motion.div>
 
-         <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
-           {["Web Apps", "SaaS", "Dashboards", "Landing Pages"].map((label) => (
-             <div
-               key={label}
-               className="px-4 py-3 sm:px-5 sm:py-3.5 transition-all duration-300 cursor-default"
-               style={{
-                 backgroundColor: INK,
-                 borderTop: `1.5px solid ${ORANGE}`,
-                 borderLeft: `1.5px solid ${ORANGE}`,
-                 borderRight: `1.5px solid ${INK}`,
-                 borderBottom: `1.5px solid ${INK}`,
-                 borderRadius: 8,
-                 boxShadow: `3px 3px 0 0 ${ORANGE}`,
-                 color: BG,
-               }}
-               onMouseEnter={(e) => {
-                 e.currentTarget.style.transform = "translate(-2px, -2px)";
-                 e.currentTarget.style.boxShadow = `6px 6px 0 0 ${ORANGE}`;
-                 const span = e.currentTarget.querySelector("span");
-                 if (span) span.style.color = ORANGE;
-               }}
-               onMouseLeave={(e) => {
-                 e.currentTarget.style.transform = "translate(0, 0)";
-                 e.currentTarget.style.boxShadow = `3px 3px 0 0 ${ORANGE}`;
-                 const span = e.currentTarget.querySelector("span");
-                 if (span) span.style.color = BG;
-               }}
-             >
-               <span className="text-sm sm:text-base font-semibold tracking-wide">{label}</span>
-             </div>
-           ))}
-         </div>
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
+          {["Web Apps", "SaaS", "Dashboards", "Landing Pages"].map((label) => (
+            <div
+              key={label}
+              className="px-4 py-3 sm:px-5 sm:py-3.5 transition-all duration-300 cursor-default"
+              style={{
+                backgroundColor: INK,
+                borderTop: `1.5px solid ${ORANGE}`,
+                borderLeft: `1.5px solid ${ORANGE}`,
+                borderRight: `1.5px solid ${INK}`,
+                borderBottom: `1.5px solid ${INK}`,
+                borderRadius: 8,
+                boxShadow: `3px 3px 0 0 ${ORANGE}`,
+                color: BG,
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translate(-2px, -2px)";
+                e.currentTarget.style.boxShadow = `6px 6px 0 0 ${ORANGE}`;
+                const span = e.currentTarget.querySelector("span");
+                if (span) span.style.color = ORANGE;
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translate(0, 0)";
+                e.currentTarget.style.boxShadow = `3px 3px 0 0 ${ORANGE}`;
+                const span = e.currentTarget.querySelector("span");
+                if (span) span.style.color = BG;
+              }}
+            >
+              <span className="text-sm sm:text-base font-semibold tracking-wide">{label}</span>
+            </div>
+          ))}
+        </div>
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[minmax(220px,auto)] gap-4 sm:gap-5 mt-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[minmax(220px,auto)] gap-4 sm:gap-5 mt-8">
           {projects.map((p, i) => (
             <Card key={p.title} p={p} i={i} />
           ))}

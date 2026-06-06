@@ -152,10 +152,7 @@ export function PageLoader({ onComplete }: PageLoaderProps) {
                             strokeWidth={3}
                           />
                         ) : active ? (
-                          <Loader2
-                            className="w-3.5 h-3.5 animate-spin"
-                            style={{ color: ORANGE }}
-                          />
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" style={{ color: ORANGE }} />
                         ) : (
                           <span className="page-loader__task-pending" />
                         )}

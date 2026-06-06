@@ -29,26 +29,29 @@ export function CursorGlow() {
     const isInteractive = (el: Element | null) => {
       if (!el) return false;
       return !!el.closest(
-        'a, button, input, textarea, select, label, [role="button"], [data-cursor="off"]'
+        'a, button, input, textarea, select, label, [role="button"], [data-cursor="off"]',
       );
     };
 
     const onMove = (e: PointerEvent) => {
       mx = e.clientX;
       my = e.clientY;
-      
+
       // Check if hero section is visible in viewport
       const heroSection = document.getElementById("hero");
       let inHeroSection = false;
       if (heroSection) {
         const rect = heroSection.getBoundingClientRect();
         const isHeroVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        inHeroSection = isHeroVisible && 
-                        e.clientX >= rect.left && e.clientX <= rect.right && 
-                        e.clientY >= rect.top && e.clientY <= rect.bottom;
+        inHeroSection =
+          isHeroVisible &&
+          e.clientX >= rect.left &&
+          e.clientX <= rect.right &&
+          e.clientY >= rect.top &&
+          e.clientY <= rect.bottom;
       }
       setInHero(inHeroSection);
-      
+
       const target = document.elementFromPoint(mx, my);
       setVisible(!isInteractive(target) && inHeroSection);
       if (ref.current) {

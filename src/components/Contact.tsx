@@ -53,9 +53,14 @@ export function Contact() {
               className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
               seed={8}
             />
-            <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: BG }}>
-              Need a website,<br />
-              that actually stands out?<br />
+            <p
+              className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3"
+              style={{ color: BG }}
+            >
+              Need a website,
+              <br />
+              that actually stands out?
+              <br />
               Let's make it happen.
             </p>
           </div>

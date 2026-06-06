@@ -6,12 +6,42 @@ const ORANGE = "#e85d3a";
 const INK = "#14201a";
 
 const services = [
-  { Icon: Layout, title: "Web Design & UI", desc: "Pixel-perfect, conversion-focused interfaces designed in Figma and built in code.", tag: "Design" },
-  { Icon: Code2, title: "Frontend Development", desc: "Modern, responsive interfaces built with React, Next.js and industry-leading tools.", tag: "Frontend" },
-  { Icon: Server, title: "Backend Development", desc: "Secure, scalable systems that power websites, apps and business workflows.", tag: "Backend" },
-  { Icon: Sparkles, title: "Animations & Interactions", desc: "Smooth animations and thoughtful details that make products feel alive.", tag: "Motion" },
-  { Icon: Gauge, title: "Performance & SEO", desc: "Fast-loading websites optimized for visibility, traffic and conversions.", tag: "Perf" },
-  { Icon: LifeBuoy, title: "Ongoing Support", desc: "Regular updates, fixes and improvements to keep your website running smoothly.", tag: "Care" },
+  {
+    Icon: Layout,
+    title: "Web Design & UI",
+    desc: "Pixel-perfect, conversion-focused interfaces designed in Figma and built in code.",
+    tag: "Design",
+  },
+  {
+    Icon: Code2,
+    title: "Frontend Development",
+    desc: "Modern, responsive interfaces built with React, Next.js and industry-leading tools.",
+    tag: "Frontend",
+  },
+  {
+    Icon: Server,
+    title: "Backend Development",
+    desc: "Secure, scalable systems that power websites, apps and business workflows.",
+    tag: "Backend",
+  },
+  {
+    Icon: Sparkles,
+    title: "Animations & Interactions",
+    desc: "Smooth animations and thoughtful details that make products feel alive.",
+    tag: "Motion",
+  },
+  {
+    Icon: Gauge,
+    title: "Performance & SEO",
+    desc: "Fast-loading websites optimized for visibility, traffic and conversions.",
+    tag: "Perf",
+  },
+  {
+    Icon: LifeBuoy,
+    title: "Ongoing Support",
+    desc: "Regular updates, fixes and improvements to keep your website running smoothly.",
+    tag: "Care",
+  },
 ];
 
 export function Services() {
@@ -25,7 +55,9 @@ export function Services() {
           transition={{ duration: 0.6 }}
           className="mb-12 sm:mb-16 max-w-2xl"
         >
-          <p className="text-xs sm:text-sm font-semibold text-emerald mb-3 tracking-[0.2em] uppercase">— Services</p>
+          <p className="text-xs sm:text-sm font-semibold text-emerald mb-3 tracking-[0.2em] uppercase">
+            — Services
+          </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05]">
             What I do <span className="text-emerald italic font-light">best</span>.
           </h2>
@@ -35,12 +67,19 @@ export function Services() {
               className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
               seed={4}
             />
-<p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: "#f5f0e0" }}>
-               Building modern websites,<br />
-               web applications and digital<br />
-               experiences that help businesses<br />
-               stand out online.<br />
-             </p>
+            <p
+              className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3"
+              style={{ color: "#f5f0e0" }}
+            >
+              Building modern websites,
+              <br />
+              web applications and digital
+              <br />
+              experiences that help businesses
+              <br />
+              stand out online.
+              <br />
+            </p>
           </div>
         </motion.div>
 
@@ -71,10 +110,15 @@ export function Services() {
             >
               <div className="relative">
                 <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 bg-ink text-primary-foreground flex items-center justify-center group-hover:rotate-6 transition-transform" style={{ borderRadius: 6 }}>
+                  <div
+                    className="w-12 h-12 bg-ink text-primary-foreground flex items-center justify-center group-hover:rotate-6 transition-transform"
+                    style={{ borderRadius: 6 }}
+                  >
                     <s.Icon className="w-5 h-5" />
                   </div>
-                  <span className="text-[10px] tracking-widest uppercase font-mono text-muted-foreground">{s.tag}</span>
+                  <span className="text-[10px] tracking-widest uppercase font-mono text-muted-foreground">
+                    {s.tag}
+                  </span>
                 </div>
                 <h3 className="mt-6 text-xl font-display font-semibold text-ink">{s.title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{s.desc}</p>

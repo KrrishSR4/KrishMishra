@@ -12,10 +12,30 @@ const GOLD = "#c9a84c";
 const MUTED = "#5a5f5a";
 
 const steps = [
-  { Icon: Compass, title: "Discovery", time: "Week 1", desc: "We discuss your goals, audience and requirements to create a clear roadmap." },
-  { Icon: PenTool, title: "Design", time: "Week 2", desc: "Wireframes and visual concepts are created and reviewed before development." },
-  { Icon: Code2, title: "Development", time: "Week 3–5", desc: "Your website is built with a focus on speed, quality and usability." },
-  { Icon: Rocket, title: "Launch & Support", time: "Ongoing", desc: "After launch, ongoing support is available for updates and improvements." },
+  {
+    Icon: Compass,
+    title: "Discovery",
+    time: "Week 1",
+    desc: "We discuss your goals, audience and requirements to create a clear roadmap.",
+  },
+  {
+    Icon: PenTool,
+    title: "Design",
+    time: "Week 2",
+    desc: "Wireframes and visual concepts are created and reviewed before development.",
+  },
+  {
+    Icon: Code2,
+    title: "Development",
+    time: "Week 3–5",
+    desc: "Your website is built with a focus on speed, quality and usability.",
+  },
+  {
+    Icon: Rocket,
+    title: "Launch & Support",
+    time: "Ongoing",
+    desc: "After launch, ongoing support is available for updates and improvements.",
+  },
 ];
 
 const cardAccents = [ORANGE, STEEL, GOLD, ORANGE];
@@ -41,32 +61,40 @@ export function Process() {
           >
             — How we'll work
           </p>
-<h2
-             className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05] font-display"
-             style={{ color: INK }}
-           >
-             From idea to launch.<br />
-             <span
-               className="italic font-light relative inline-block"
-               style={{ backgroundColor: GOLD, padding: "0 0.15em", color: INK }}
-             >
-               Step by step
-             </span>
-             .
-           </h2>
-           <div className="relative mt-5 w-fit rotate-1">
-             <BrushStroke
-               color="#8338EC"
-               className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
-               seed={5}
-             />
-             <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: BG }}>
-               Know exactly what's<br />
-               happening, what's next<br />
-               and when your project<br />
-               will be delivered.<br />
-             </p>
-           </div>
+          <h2
+            className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.05] font-display"
+            style={{ color: INK }}
+          >
+            From idea to launch.
+            <br />
+            <span
+              className="italic font-light relative inline-block"
+              style={{ backgroundColor: GOLD, padding: "0 0.15em", color: INK }}
+            >
+              Step by step
+            </span>
+            .
+          </h2>
+          <div className="relative mt-5 w-fit rotate-1">
+            <BrushStroke
+              color="#8338EC"
+              className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
+              seed={5}
+            />
+            <p
+              className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3"
+              style={{ color: BG }}
+            >
+              Know exactly what's
+              <br />
+              happening, what's next
+              <br />
+              and when your project
+              <br />
+              will be delivered.
+              <br />
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
@@ -93,20 +121,20 @@ export function Process() {
                 e.currentTarget.style.boxShadow = `5px 5px 0 0 ${INK}`;
               }}
             >
-<div
-               className="absolute top-5 right-5 text-5xl font-display font-bold transition-colors duration-300"
-               style={{ color: ORANGE, opacity: 0.25 }}
-               onMouseEnter={(e) => {
-                 e.currentTarget.style.color = INK;
-                 e.currentTarget.style.opacity = "1";
-               }}
-               onMouseLeave={(e) => {
-                 e.currentTarget.style.color = ORANGE;
-                 e.currentTarget.style.opacity = "0.25";
-               }}
-             >
-               0{i + 1}
-             </div>
+              <div
+                className="absolute top-5 right-5 text-5xl font-display font-bold transition-colors duration-300"
+                style={{ color: ORANGE, opacity: 0.25 }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.color = INK;
+                  e.currentTarget.style.opacity = "1";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.color = ORANGE;
+                  e.currentTarget.style.opacity = "0.25";
+                }}
+              >
+                0{i + 1}
+              </div>
               <div
                 className="w-12 h-12 flex items-center justify-center"
                 style={{
@@ -123,10 +151,7 @@ export function Process() {
               >
                 {s.time}
               </div>
-              <h3
-                className="mt-1 text-xl font-display font-semibold"
-                style={{ color: INK }}
-              >
+              <h3 className="mt-1 text-xl font-display font-semibold" style={{ color: INK }}>
                 {s.title}
               </h3>
               <p className="mt-2 text-sm leading-relaxed" style={{ color: MUTED }}>

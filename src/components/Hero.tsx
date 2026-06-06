@@ -29,16 +29,16 @@ import { BrushStroke } from "./BrushStroke";
  *  No gradients. Hard edges. Industrial accents.                 *
  * ------------------------------------------------------------- */
 
-const BG = "#f5f0e0";          // cream
-const SURFACE = "#fbf7ea";     // light cream card
-const SURFACE_2 = "#ece5d0";   // deeper cream
-const BORDER = "#14201a";      // hard ink border
+const BG = "#f5f0e0"; // cream
+const SURFACE = "#fbf7ea"; // light cream card
+const SURFACE_2 = "#ece5d0"; // deeper cream
+const BORDER = "#14201a"; // hard ink border
 const SOFT_BORDER = "rgba(20,32,26,0.12)";
-const INK = "#14201a";         // near-black
+const INK = "#14201a"; // near-black
 const TEXT = "#14201a";
 const MUTED = "#5a5f5a";
-const ORANGE = "#e85d3a";      // bold accent
-const STEEL = "#2d3a45";       // deep steel blue
+const ORANGE = "#e85d3a"; // bold accent
+const STEEL = "#2d3a45"; // deep steel blue
 const GOLD = "#c9a84c";
 
 function useClock() {
@@ -175,10 +175,15 @@ export function Hero() {
               className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
               seed={1}
             />
-            <p className="relative text-base sm:text-lg font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: INK }}>
+            <p
+              className="relative text-base sm:text-lg font-bold tracking-tight leading-[1.65] z-10 px-5 py-3"
+              style={{ color: INK }}
+            >
               I design and ship premium web products end-to-end —<br />
-              polished interfaces, resilient APIs, and<br />
-              animations that convert.<br />
+              polished interfaces, resilient APIs, and
+              <br />
+              animations that convert.
+              <br />
               Trusted by founders worldwide.
             </p>
           </motion.div>
@@ -232,7 +237,16 @@ export function Hero() {
             <Terminal className="w-3.5 h-3.5" style={{ color: ORANGE }} />
             <span style={{ color: "rgba(245,240,224,0.55)" }}>krish@web:~$</span>
             <span>npx krish-mishra</span>
-            <span style={{ color: GOLD }}>{typedCmd} <motion.span style={{ color: "white" }} animate={{ opacity: [1, 0, 1] }} transition={{ duration: 1, repeat: Infinity }}>▍</motion.span></span>
+            <span style={{ color: GOLD }}>
+              {typedCmd}{" "}
+              <motion.span
+                style={{ color: "white" }}
+                animate={{ opacity: [1, 0, 1] }}
+                transition={{ duration: 1, repeat: Infinity }}
+              >
+                ▍
+              </motion.span>
+            </span>
           </motion.div>
         </div>
 
@@ -277,10 +291,7 @@ export function Hero() {
                 </div>
               </div>
               <div className="relative mt-6 flex items-center gap-2">
-                <span
-                  className="w-2 h-2"
-                  style={{ backgroundColor: ORANGE }}
-                />
+                <span className="w-2 h-2" style={{ backgroundColor: ORANGE }} />
                 <span className="text-xs opacity-90 font-mono uppercase tracking-wider">
                   Online · taking briefs
                 </span>
@@ -310,7 +321,9 @@ export function Hero() {
             >
               <div className="flex items-center justify-between">
                 <Zap className="w-4 h-4" />
-                <span className="text-[10px] font-mono uppercase tracking-wider opacity-70">98</span>
+                <span className="text-[10px] font-mono uppercase tracking-wider opacity-70">
+                  98
+                </span>
               </div>
               <div>
                 <div className="text-[10px] uppercase tracking-wider font-mono opacity-80">
@@ -319,7 +332,10 @@ export function Hero() {
                 <div className="font-display text-4xl font-bold leading-none mt-1">
                   98<span className="text-lg opacity-70">/100</span>
                 </div>
-                <div className="mt-3 h-2 w-full overflow-hidden" style={{ backgroundColor: "rgba(20,32,26,0.18)", borderRadius: 2 }}>
+                <div
+                  className="mt-3 h-2 w-full overflow-hidden"
+                  style={{ backgroundColor: "rgba(20,32,26,0.18)", borderRadius: 2 }}
+                >
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: "98%" }}
@@ -406,7 +422,10 @@ export function Hero() {
             >
               <Calendar className="w-5 h-5" style={{ color: ORANGE }} />
               <div className="leading-tight">
-                <div className="text-[10px] uppercase tracking-wider font-mono" style={{ color: MUTED }}>
+                <div
+                  className="text-[10px] uppercase tracking-wider font-mono"
+                  style={{ color: MUTED }}
+                >
                   Average Delivery
                 </div>
                 <div className="font-display text-3xl font-bold leading-none mt-1">
@@ -442,7 +461,10 @@ export function Hero() {
             >
               <MessageCircle className="w-4 h-4 shrink-0" style={{ color: ORANGE }} />
               <div className="leading-tight min-w-0">
-                <div className="text-[10px] uppercase tracking-wider font-mono" style={{ color: MUTED }}>
+                <div
+                  className="text-[10px] uppercase tracking-wider font-mono"
+                  style={{ color: MUTED }}
+                >
                   Quick Replies
                 </div>
                 <div className="text-[11px] font-semibold">Within 24h</div>
@@ -527,12 +549,13 @@ export function Hero() {
             }}
           >
             <div className="relative flex items-center justify-between text-[10px] uppercase tracking-widest font-mono opacity-70">
-              <span><MapPin className="w-3 h-3 inline mr-1" />Raipur, In</span>
+              <span>
+                <MapPin className="w-3 h-3 inline mr-1" />
+                Raipur, In
+              </span>
               <span>IST</span>
             </div>
-            <div className="relative mt-2 font-display text-3xl font-bold tabular-nums">
-              {time}
-            </div>
+            <div className="relative mt-2 font-display text-3xl font-bold tabular-nums">{time}</div>
           </div>
           {[
             {
@@ -616,9 +639,7 @@ export function Hero() {
                 <div className="text-[9px] uppercase tracking-wider font-mono opacity-70">
                   {label}
                 </div>
-                <div className="text-[11px] font-semibold leading-tight">
-                  {value}
-                </div>
+                <div className="text-[11px] font-semibold leading-tight">{value}</div>
               </div>
             </motion.div>
           ))}

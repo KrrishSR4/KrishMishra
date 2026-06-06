@@ -12,13 +12,34 @@ const GOLD = "#c9a84c";
 const MUTED = "#5a5f5a";
 
 const faqs = [
-  { q: "What's your typical project timeline?", a: "Most websites take 1–3 weeks, while larger web applications can take 4–8 weeks depending on features, feedback cycles and project scope." },
-  { q: "Do you work solo or with a team?", a: "I primarily work independently and handle design, development and deployment. For specialized requirements, I can collaborate with trusted professionals when needed." },
-  { q: "How do you price projects?", a: "Pricing depends on the project scope, complexity and timeline. After understanding your requirements, I provide a clear fixed-price or milestone-based proposal." },
-  { q: "Will I own the code and assets?", a: "Yes. Once the project is completed and payment is settled, you receive full ownership of the code, assets and project deliverables." },
-  { q: "Do you offer post-launch support?", a: "Yes. I provide post-launch support for bug fixes, updates and improvements to ensure everything runs smoothly after launch." },
-  { q: "What technologies do you work with?", a: "I work primarily with React, Next.js, TypeScript, Node.js, Tailwind CSS and modern web technologies to build fast and reliable digital products." },
-  { q: "Can you redesign an existing website?", a: "Yes. I can improve the design, performance, user experience and overall functionality of existing websites while preserving important content and features." },
+  {
+    q: "What's your typical project timeline?",
+    a: "Most websites take 1–3 weeks, while larger web applications can take 4–8 weeks depending on features, feedback cycles and project scope.",
+  },
+  {
+    q: "Do you work solo or with a team?",
+    a: "I primarily work independently and handle design, development and deployment. For specialized requirements, I can collaborate with trusted professionals when needed.",
+  },
+  {
+    q: "How do you price projects?",
+    a: "Pricing depends on the project scope, complexity and timeline. After understanding your requirements, I provide a clear fixed-price or milestone-based proposal.",
+  },
+  {
+    q: "Will I own the code and assets?",
+    a: "Yes. Once the project is completed and payment is settled, you receive full ownership of the code, assets and project deliverables.",
+  },
+  {
+    q: "Do you offer post-launch support?",
+    a: "Yes. I provide post-launch support for bug fixes, updates and improvements to ensure everything runs smoothly after launch.",
+  },
+  {
+    q: "What technologies do you work with?",
+    a: "I work primarily with React, Next.js, TypeScript, Node.js, Tailwind CSS and modern web technologies to build fast and reliable digital products.",
+  },
+  {
+    q: "Can you redesign an existing website?",
+    a: "Yes. I can improve the design, performance, user experience and overall functionality of existing websites while preserving important content and features.",
+  },
 ];
 
 export function FAQ() {
@@ -62,8 +83,12 @@ export function FAQ() {
               className="absolute inset-0 w-full h-full pointer-events-none scale-[1.2] sm:scale-125"
               seed={7}
             />
-            <p className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3" style={{ color: BG }}>
-              Didn't find what you needed?<br />
+            <p
+              className="relative text-sm sm:text-base font-bold tracking-tight leading-[1.65] z-10 px-5 py-3"
+              style={{ color: BG }}
+            >
+              Didn't find what you needed?
+              <br />
               Let's clear it up.
             </p>
           </div>
@@ -123,10 +148,7 @@ export function FAQ() {
                   transition={{ duration: 0.3 }}
                   className="overflow-hidden"
                 >
-                  <p
-                    className="px-5 sm:px-6 pb-5 text-sm leading-relaxed"
-                    style={{ color: MUTED }}
-                  >
+                  <p className="px-5 sm:px-6 pb-5 text-sm leading-relaxed" style={{ color: MUTED }}>
                     {f.a}
                   </p>
                 </motion.div>
