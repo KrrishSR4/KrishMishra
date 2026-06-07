@@ -27,18 +27,24 @@ const escapeHtml = (value: string) =>
 const buildLeadEmail = ({
   name,
   email,
+  whatsapp,
+  budget,
   message,
   submittedAt,
   source,
 }: {
   name: string;
   email: string;
+  whatsapp: string;
+  budget: string;
   message: string;
   submittedAt: string;
   source: string;
 }) => {
   const safeName = escapeHtml(name);
   const safeEmail = escapeHtml(email);
+  const safeWhatsapp = whatsapp ? escapeHtml(whatsapp) : "Not provided";
+  const safeBudget = budget ? escapeHtml(budget) : "Not provided";
   const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
   const safeSubmittedAt = escapeHtml(submittedAt);
   const safeSource = escapeHtml(source);
@@ -52,7 +58,6 @@ const buildLeadEmail = ({
           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:640px;background:#fbf7ea;border:2px solid #14201a;border-radius:12px;box-shadow:6px 6px 0 #14201a;overflow:hidden;">
             <tr>
               <td style="padding:28px 30px 20px;border-bottom:2px solid #14201a;background:#f8f1dc;">
-                <img src="https://krishmishra.pages.dev/og-image.svg" alt="Krish Mishra Portfolio" width="120" style="display:block;max-width:120px;height:auto;margin-bottom:18px;">
                 <h1 style="margin:0;font-size:26px;line-height:1.2;color:#14201a;">New Lead from Krish Mishra Portfolio</h1>
                 <p style="margin:10px 0 0;font-size:15px;line-height:1.6;color:#5a5f5a;">A visitor submitted the contact form.</p>
               </td>
@@ -64,6 +69,12 @@ const buildLeadEmail = ({
 
                 <p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5a5f5a;">Email</p>
                 <p style="margin:0 0 22px;font-size:18px;line-height:1.5;color:#14201a;"><a href="mailto:${safeEmail}" style="color:#e85d3a;text-decoration:none;">${safeEmail}</a></p>
+
+                <p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5a5f5a;">WhatsApp</p>
+                <p style="margin:0 0 22px;font-size:18px;line-height:1.5;color:#14201a;">${safeWhatsapp}</p>
+
+                <p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5a5f5a;">Budget</p>
+                <p style="margin:0 0 22px;font-size:18px;line-height:1.5;color:#14201a;">${safeBudget}</p>
 
                 <p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:#5a5f5a;">Project Details</p>
                 <div style="margin:0 0 24px;padding:18px;background:#f5f0e0;border:1.5px solid #14201a;border-radius:8px;font-size:16px;line-height:1.7;color:#14201a;">${safeMessage}</div>
@@ -113,6 +124,8 @@ const handleContactRequest = async (request: Request, env: Env) => {
     const formData = await request.formData();
     const name = formData.get("name")?.toString().trim();
     const email = formData.get("email")?.toString().trim();
+    const whatsapp = formData.get("whatsapp")?.toString().trim() || "";
+    const budget = formData.get("budget")?.toString().trim() || "";
     const message = formData.get("message")?.toString().trim();
 
     if (!name || !email || !message) {
@@ -140,7 +153,7 @@ const handleContactRequest = async (request: Request, env: Env) => {
         to: ["krishmishra4444@gmail.com"],
         reply_to: email,
         subject: "New Lead from Krish Mishra Portfolio",
-        html: buildLeadEmail({ name, email, message, submittedAt, source }),
+        html: buildLeadEmail({ name, email, whatsapp, budget, message, submittedAt, source }),
       }),
     });
 
