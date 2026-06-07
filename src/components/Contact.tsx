@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { Send, Github, Linkedin, Twitter, Mail, MessageCircle } from "lucide-react";
+import { Send, Github, Mail, MessageCircle } from "lucide-react";
 import { useState } from "react";
 import { BrushStroke } from "./BrushStroke";
 
@@ -13,6 +13,36 @@ const MUTED = "#5a5f5a";
 
 export function Contact() {
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    setError("");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
+      const text = await res.text();
+      const data = text ? JSON.parse(text) : {};
+      if (res.ok && data.success) {
+        setSent(true);
+        form.reset();
+        setTimeout(() => setSent(false), 3000);
+      } else {
+        setError(data.error || `Unable to send your message. Status: ${res.status}`);
+      }
+    } catch (error) {
+      console.error("Failed to send message:", error);
+      setError(
+        error instanceof Error
+          ? `Unable to send your message: ${error.message}`
+          : "Unable to send your message. Please try again."
+      );
+    }
+  };
 
   return (
     <section
@@ -67,15 +97,13 @@ export function Contact() {
         </motion.div>
 
         <motion.form
+          action="/api/contact"
+          method="POST"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          onSubmit={(e) => {
-            e.preventDefault();
-            setSent(true);
-            setTimeout(() => setSent(false), 3000);
-          }}
+          onSubmit={handleSubmit}
           className="p-6 sm:p-10 grid gap-5"
           style={{
             backgroundColor: SURFACE,
@@ -94,6 +122,7 @@ export function Contact() {
               </span>
               <input
                 required
+                name="name"
                 className="px-4 py-3 outline-none transition-all duration-200"
                 placeholder="Jane Doe"
                 style={{
@@ -122,6 +151,7 @@ export function Contact() {
               <input
                 required
                 type="email"
+                name="email"
                 className="px-4 py-3 outline-none transition-all duration-200"
                 placeholder="jane@studio.com"
                 style={{
@@ -152,6 +182,7 @@ export function Contact() {
             <textarea
               required
               rows={5}
+              name="message"
               className="px-4 py-3 outline-none transition-all duration-200 resize-none"
               placeholder="Tell me about your idea, timeline, and goals…"
               style={{
@@ -178,6 +209,11 @@ export function Contact() {
             {sent ? "Message sent ✓" : "Send message"}
             <Send className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </button>
+          {error ? (
+            <p className="text-sm font-medium" style={{ color: ORANGE }}>
+              {error}
+            </p>
+          ) : null}
         </motion.form>
 
         {/* social links & footer */}
@@ -221,7 +257,7 @@ export function Contact() {
             ))}
           </div>
           <p className="text-xs sm:text-sm" style={{ color: MUTED }}>
-            © {new Date().getFullYear()} Krish Mishra — Crafted with care.
+            © 2026 Krish Mishra — Designing & building for the web.
           </p>
         </div>
       </div>
