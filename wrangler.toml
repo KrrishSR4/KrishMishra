@@ -1,5 +1,5 @@
 name = "krishmishra-portfolio"
 compatibility_date = "2026-06-07"
-main = "./functions/api/contact.ts"
+pages_build_output_dir = "dist"
 
 [vars]
